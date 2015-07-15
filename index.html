@@ -12,6 +12,9 @@
         <div data-bind="text: clickNum"></div>
         <div data-bind="text: title"></div>
         <img data-bind="attr: { src: catPicUrl}, click: changeClickNum"  alt="cute cat">
+        <ul data-bind="foreach: nickNames">
+            <li data-bind="text: name"></li>
+        </ul>
 
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>

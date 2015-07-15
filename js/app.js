@@ -5,10 +5,12 @@ var ViewModel = function() {
 	this.name = ko.observable("Kote");
 	this.clickNum = ko.observable(0);
 	this.catPicUrl = ko.observable("img/1413379559_412a540d29_z.jpg");
-	
-	this.changeClickNum = function () {
-		this.clickNum(this.clickNum() + 1);
-	}
+	this.nickNames = ko.observableArray([
+		{name: "Kote"},
+		{name: "Kotee"},
+		{name: "Koteshechka"},
+		{name: "Kot'e"}		
+	]);	
 	this.title = ko.computed(function(){
 		if(this.clickNum() >= 20)
 			return "veteran";
@@ -25,6 +27,9 @@ var ViewModel = function() {
 		return "newborn";
 	}, this);
 	
+	this.changeClickNum = function () {
+		this.clickNum(this.clickNum() + 1);
+	};	
 };
 
 ko.applyBindings(new ViewModel());
