@@ -1,7 +1,5 @@
 /// <reference path="lib/knockout-3.2.0.js" />
-
-
-var ViewModel = function() {
+var Cat = function() {
 	this.name = ko.observable("Kote");
 	this.clickNum = ko.observable(0);
 	this.catPicUrl = ko.observable("img/1413379559_412a540d29_z.jpg");
@@ -25,10 +23,15 @@ var ViewModel = function() {
 			return "teen";	
 			
 		return "newborn";
-	}, this);
-	
+	}, this);	
+};
+
+
+var ViewModel = function() {
+	var self = this;	
+	this.currentCat = ko.observable(new Cat());
 	this.changeClickNum = function () {
-		this.clickNum(this.clickNum() + 1);
+		self.currentCat().clickNum(self.currentCat().clickNum() + 1);
 	};	
 };
 
